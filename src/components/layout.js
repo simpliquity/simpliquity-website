@@ -1,8 +1,7 @@
 import "./layout.css";
 
-import Container from "./Container.js";
 import Footer from "./Footer.js";
-import Header from "./header";
+import Header from "./header.js";
 import PropTypes from "prop-types";
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
@@ -17,8 +16,12 @@ const styles = {
         minHeight: "100vh"
     },
     contentWrap: {
-        padding: "20px 10px 10px 10px",
+        padding: 0,
         paddingBottom: FOOTER_HEIGHT
+    },
+    headerWrap: {
+        backgroundColor: "rgba(255,255,255,0.8)",
+        padding: "10px 20px"
     },
     content: {
         marginTop: "20px"
@@ -27,7 +30,6 @@ const styles = {
         position: "absolute",
         bottom: 0,
         width: "100%",
-        height: FOOTER_HEIGHT,
         backgroundColor: "#444",
         color: "#eee",
         padding: "0 10px"
@@ -48,9 +50,9 @@ const Layout = ({ children, classes }) => (
         render={data => (
             <div id="pageContainer" className={classes.pageContainer}>
                 <div className={classes.contentWrap}>
-                    <Container>
+                    <div className={classes.headerWrap}>
                         <Header siteTitle={data.site.siteMetadata.title} />
-                    </Container>
+                    </div>
                     <div className={classes.content}>{children}</div>
                 </div>
                 <div className={classes.footer}>

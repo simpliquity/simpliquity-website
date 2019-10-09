@@ -28,7 +28,7 @@ function withRoot(Component) {
               tree thanks to React context. */}
                     <MuiThemeProvider
                         theme={this.muiPageContext.theme}
-                        sheetsManager={this.muiPageContext.sheetsManager}
+                        //sheetsManager={this.muiPageContext.sheetsManager}
                     >
                         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                         <CssBaseline />

@@ -1,13 +1,15 @@
+import Container from "../components/Container.js";
 import Link from "./Link.js";
+import Logo from "./IsyflowLogo.js";
 import LocaleSelector from "./LocaleSelector.js";
 import PropTypes from "prop-types";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     wrapper: {
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         justifyContent: "space-between",
         flexWrap: "wrap"
     }
@@ -24,10 +26,14 @@ const Header = () => {
                 }
             }
         >
-            <div className={classes.wrapper}>
-                <Link target="/" />
-                <LocaleSelector />
-            </div>
+            <Container>
+                <div className={classes.wrapper}>
+                    <Link target="/">
+                        <Logo style={{ maxWidth: "100%" }} />
+                    </Link>
+                    <LocaleSelector />
+                </div>
+            </Container>
         </header>
     );
 };

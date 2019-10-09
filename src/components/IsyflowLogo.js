@@ -1,28 +1,24 @@
-import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import React from "react";
 
-const Image = () => (
+const Logo = ({ data }) => <Img fixed={data.file.childImageSharp.fixed} />;
+
+export default () => (
     <StaticQuery
         query={graphql`
             query {
-                placeholderImage: site(
-                    relativePath: { eq: "simpliquity_logo.png" }
-                ) {
+                file(relativePath: { eq: "simpliquity_logo_transparent.png" }) {
                     childImageSharp {
-                        fixed(height: 60) {
-                            ...GatsbyImageSharpFixed_withWebp_noBase64
+                        # Specify the image processing specifications right in the query.
+                        # Makes it trivial to update as your page's design changes.
+                        fixed(width: 300) {
+                            ...GatsbyImageSharpFixed
                         }
                     }
                 }
             }
         `}
-        render={data => (
-            <Img
-                fixed={data.placeholderImage.childImageSharp.fixed}
-                fadeIn={false}
-            />
-        )}
+        render={data => <Logo data={data} />}
     />
 );
-export default Image;

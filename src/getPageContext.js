@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-/* global Map */
 
 import { SheetsRegistry } from "jss";
 import {
@@ -29,7 +28,7 @@ function createPageContext() {
     return {
         theme,
         // This is needed in order to deduplicate the injection of CSS in the page.
-        sheetsManager: new Map(),
+        //sheetsManager: new Map(),
         // This is needed in order to inject the critical CSS.
         sheetsRegistry: new SheetsRegistry(),
         // The standard class name generator.

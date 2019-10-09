@@ -1,3 +1,4 @@
+import BackgroundSection from "../components/BackgroundSection.js";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Container from "../components/Container.js";
 import LocaleWrapper from "../components/locale/LocaleWrapper.js";
@@ -5,7 +6,7 @@ import PageSection from "../components/PageSection.js";
 import React from "react";
 import Welcome from "../components/Welcome";
 import withRoot from "../withRoot.js";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { ThemeProvider } from "@material-ui/styles";
@@ -23,40 +24,47 @@ const theme = createMuiTheme({
     }
 });
 
-const styles = {
+const useStyles = makeStyles(() => ({
     main: {
-        backgroundColor: "#fff"
-    },
-    welcome: {},
-    features: {}
+        //backgroundColor: "#29b6f6",
+        backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(122, 122, 122, 0.4) 100%)`,
+        backgroundPosition: "bottom right",
+        backgroundSize: "cover",
+        color: theme.palette.secondary.main
+    }
+}));
+
+const IndexPage = ({ locale }) => {
+    const classes = useStyles();
+    return (
+        <ThemeProvider theme={theme}>
+            <LocaleWrapper locale={locale}>
+                <BackgroundSection>
+                    <div className={classes.main}>
+                        <Layout>
+                            <SEO
+                                title="Simpliquity"
+                                keywords={[
+                                    `e-learning`,
+                                    `tangible`,
+                                    `augmented reality`,
+                                    `simulation`,
+                                    `learning technologies`,
+                                    `logistics`,
+                                    `vocational training`
+                                ]}
+                            />
+                            <PageSection>
+                                <Container>
+                                    <Welcome />
+                                </Container>
+                            </PageSection>
+                        </Layout>
+                    </div>
+                </BackgroundSection>
+            </LocaleWrapper>
+        </ThemeProvider>
+    );
 };
 
-const IndexPage = ({ classes, locale }) => (
-    <ThemeProvider theme={theme}>
-        <LocaleWrapper locale={locale}>
-            <div className={classes.main}>
-                <Layout>
-                    <SEO
-                        title="Simpliquity"
-                        keywords={[
-                            `e-learning`,
-                            `tangible`,
-                            `augmented reality`,
-                            `simulation`,
-                            `learning technologies`,
-                            `logistics`,
-                            `vocational training`
-                        ]}
-                    />
-                    <PageSection className={classes.welcome}>
-                        <Container>
-                            <Welcome />
-                        </Container>
-                    </PageSection>
-                </Layout>
-            </div>
-        </LocaleWrapper>
-    </ThemeProvider>
-);
-
-export default withRoot(withStyles(styles)(IndexPage));
+export default withRoot(IndexPage);

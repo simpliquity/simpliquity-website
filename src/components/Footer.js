@@ -1,18 +1,14 @@
 import Container from "../components/Container.js";
 import I18n from "./locale/I18n.js";
-import Link from "./Link.js";
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
-const styles = {
+const useStyles = makeStyles(() => ({
     footer: {
-        padding: "20px 0"
-    },
-    features: {
-        backgroundColor: "#eee"
+        padding: "10px 0"
     },
     link: {
-        color: "inherit",
+        color: "#eee",
         textDecoration: "none"
     },
     contentWrapper: {
@@ -21,26 +17,32 @@ const styles = {
         justifyContent: "space-between",
         flexWrap: "wrap"
     }
-};
+}));
 
-const Footer = ({ classes }) => {
+const Footer = () => {
+    const classes = useStyles();
     return (
         <div className={classes.footer}>
             <Container>
                 <div className={classes.contentWrapper}>
                     <div>
-                        <Link target="/PrivacyPolicy" className={classes.link}>
-                            <I18n label="PrivacyPolicy" />
-                        </Link>
+                        <div>Simpliquity Sàrl</div>
+                        <div>Ch. de Bérée 22B, 1010 Lausanne</div>
                     </div>
                     <div>
-                        ©{new Date().getFullYear()}{" "}
-                        <a
-                            className={classes.link}
-                            href="https://www.lateralstudio.ch"
-                        >
-                            Simpliquity Sàrl
-                        </a>
+                        <div>
+                            <a
+                                href="mailto:contact@simpliquity.com"
+                                className={classes.link}
+                            >
+                                <I18n label="Email" />
+                            </a>
+                        </div>
+                        <div>
+                            <a href="tel:+41765168671" className={classes.link}>
+                                +41 (0)76 516 86 71
+                            </a>
+                        </div>
                     </div>
                 </div>
             </Container>
@@ -48,4 +50,4 @@ const Footer = ({ classes }) => {
     );
 };
 
-export default withStyles(styles)(Footer);
+export default Footer;
