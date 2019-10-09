@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "isyflow-landing-page",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ],
+  "regions": ["cdg1"],
+  "routes": [
+      {
+          "src": "^/(.*).html",
+          "headers": {"cache-control": "public,max-age=0,must-revalidate"},
+          "dest": "$1.html"
+      }
+  ]
+}
