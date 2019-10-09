@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(4),
         textTransform: "uppercase",
         color: "#000",
-        marginTop: "10px",
+        marginTop: "30px",
         padding: "0 10px"
     },
     subtitle: {
