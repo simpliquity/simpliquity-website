@@ -1,4 +1,5 @@
 import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import I18n from "./locale/I18n.js";
@@ -51,7 +52,11 @@ const Welcome = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} className={classes.gridItem}>
-                    <Youtube src="https://www.youtube.com/embed/CYuDYWYxKb8" />
+                    <Card>
+                        <CardMedia>
+                            <Youtube src="https://www.youtube.com/embed/CYuDYWYxKb8" />
+                        </CardMedia>
+                    </Card>
                 </Grid>
             </Grid>
         </div>
