@@ -27,7 +27,7 @@ const theme = createMuiTheme({
 const useStyles = makeStyles(() => ({
     main: {
         //backgroundColor: "#29b6f6",
-        backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(122, 122, 122, 0.4) 100%)`,
+        backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(0,0,0,0.1) 100%)`,
         backgroundPosition: "bottom right",
         backgroundSize: "cover",
         color: theme.palette.secondary.main

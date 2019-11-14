@@ -10,11 +10,11 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.primary.main
     },
     inactiveItem: {
-        color: "#aaa"
+        color: "#777"
     }
 }));
 
-const LocaleItem = ({ active, locale, setLocale, theme }) => {
+const LocaleItem = ({ active, locale, setLocale }) => {
     const classes = useStyles();
     return (
         <div

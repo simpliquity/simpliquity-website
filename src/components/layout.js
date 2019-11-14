@@ -20,7 +20,7 @@ const styles = {
         paddingBottom: FOOTER_HEIGHT
     },
     headerWrap: {
-        backgroundColor: "rgba(255,255,255,0.8)",
+        //backgroundColor: "rgba(255,255,255,0.8)",
         padding: "10px 20px"
     },
     content: {
