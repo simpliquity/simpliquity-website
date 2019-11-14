@@ -14,6 +14,17 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const useSelectorStyles = makeStyles(() => ({
+    selector: {
+        display: "flex",
+        flexWrap: "no-wrap",
+        justifyContent: "flex-end",
+        fontSize: "0.9rem",
+        backgroundColor: "rgb(255,255,255,0.9)",
+        borderRadius: "4px"
+    }
+}));
+
 const LocaleItem = ({ active, locale, setLocale }) => {
     const classes = useStyles();
     return (
@@ -51,17 +62,11 @@ class LocaleChecker extends React.Component {
 }
 
 const LocaleSelector = props => {
+    const classes = useSelectorStyles();
     return (
         <LocaleContext.Consumer>
             {({ locale, setLocale }) => (
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "no-wrap",
-                        justifyContent: "flex-end",
-                        fontSize: "0.9rem"
-                    }}
-                >
+                <div className={classes.selector}>
                     <LocaleChecker locale={locale} setLocale={setLocale} />
                     {_.map(Locales, itemLocale => (
                         <LocaleItem
